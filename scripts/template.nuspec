@@ -13,9 +13,14 @@
     <copyright>MIT</copyright>
     <tags>FluentDataAccess DataAccess Fluent SQLite</tags>
     <dependencies>
-        <dependency id="System.Data.SQLite" version="1.0.108" />
-        <dependency id="System.Data.SQLite.Core" version="1.0.108" />
-        <dependency id="System.Data.SQLite.Linq" version="1.0.108" />
+        <group targetFramework="net35">
+            <dependency id="System.Data.SQLite" version="1.0.108" />
+            <dependency id="System.Data.SQLite.Core" version="1.0.108" />
+            <dependency id="System.Data.SQLite.Linq" version="1.0.108" />
+        </group>
+        <group targetFramework="netstandard2.0">
+            <dependency id="Microsoft.Data.Sqlite" version="2.1.0" />
+        </group>
     </dependencies>
   </metadata>
   <files>
