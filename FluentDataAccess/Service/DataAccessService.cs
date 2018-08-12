@@ -37,7 +37,7 @@ namespace FluentDataAccess.Service
             {
                 Directory.CreateDirectory(DataPath);
             }
-            SQLiteConnection = new SQLiteConnection(string.Format(@"Data Source={0}\{1}.sqlite", DataPath, DatabaseName));
+            SQLiteConnection = new SQLiteConnection(string.Format(@"Data Source={0}", Path.Combine(DataPath, DatabaseName + ".sqlite")));
             SQLiteConnection.Open();
         }
 
