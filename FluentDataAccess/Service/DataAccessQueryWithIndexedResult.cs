@@ -1,7 +1,15 @@
 ﻿using FluentDataAccess.Core.Service;
 using System;
 using System.Collections.Generic;
+
+#if NET35
 using System.Data.SQLite;
+#else
+
+using Microsoft.Data.Sqlite;
+using SQLiteDataReader = Microsoft.Data.Sqlite.SqliteDataReader;
+
+#endif
 
 namespace FluentDataAccess.Service
 {

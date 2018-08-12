@@ -5,6 +5,16 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
+   <PackageReference Include="System.Data.SQLite" Version="1.0.108" />
+   <PackageReference Include="System.Data.SQLite.Core" Version="1.0.108" />
+   <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.108" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <ProjectReference Include="..\FluentDataAccess\FluentDataAccess.csproj" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\FluentDataAccess\FluentDataAccess.csproj" />
   </ItemGroup>

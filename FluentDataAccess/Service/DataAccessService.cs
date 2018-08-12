@@ -1,5 +1,16 @@
 ﻿using FluentDataAccess.Core.Service;
+
+#if NET35
+
 using System.Data.SQLite;
+
+#else
+
+using Microsoft.Data.Sqlite;
+using SQLiteConnection = Microsoft.Data.Sqlite.SqliteConnection;
+
+#endif
+
 using System.IO;
 
 namespace FluentDataAccess.Service
@@ -26,7 +37,7 @@ namespace FluentDataAccess.Service
             {
                 Directory.CreateDirectory(DataPath);
             }
-            SQLiteConnection = new SQLiteConnection(string.Format(@"Data Source={0}\{1}.sqlite;Version=3;", DataPath, DatabaseName));
+            SQLiteConnection = new SQLiteConnection(string.Format(@"Data Source={0}\{1}.sqlite", DataPath, DatabaseName));
             SQLiteConnection.Open();
         }
 

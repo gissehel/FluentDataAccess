@@ -1,7 +1,17 @@
 ﻿using FluentDataAccess.Core.Service;
 using System;
 using System.Collections.Generic;
+
+#if NET35
 using System.Data.SQLite;
+#else
+
+using Microsoft.Data.Sqlite;
+using SQLiteConnection = Microsoft.Data.Sqlite.SqliteConnection;
+using SQLiteParameterCollection = Microsoft.Data.Sqlite.SqliteParameterCollection;
+using SQLiteCommand = Microsoft.Data.Sqlite.SqliteCommand;
+
+#endif
 
 namespace FluentDataAccess.Service
 {
@@ -43,67 +53,153 @@ namespace FluentDataAccess.Service
 
         public IDataAccessQuery WithParameter(string name, string value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.String).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.String
+#else
+                Microsoft.Data.Sqlite.SqliteType.Text
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, short value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Int16).Value = value);
+            ParameterActions.Add(p => p.Add("@" + name,
+#if NET35
+                System.Data.DbType.Int16
+#else
+                Microsoft.Data.Sqlite.SqliteType.Integer
+#endif
+                ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, int value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Int32).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Int32
+#else
+                Microsoft.Data.Sqlite.SqliteType.Integer
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, long value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Int64).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Int64
+#else
+                Microsoft.Data.Sqlite.SqliteType.Integer
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, float value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Single).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Single
+#else
+                Microsoft.Data.Sqlite.SqliteType.Real
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, double value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Double).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Double
+#else
+                Microsoft.Data.Sqlite.SqliteType.Real
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, Guid value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Guid).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Guid
+#else
+                Microsoft.Data.Sqlite.SqliteType.Text
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, decimal value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Decimal).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Decimal
+#else
+                Microsoft.Data.Sqlite.SqliteType.Real
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, DateTime value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.DateTime).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.DateTime
+#else
+                Microsoft.Data.Sqlite.SqliteType.Text
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, byte value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Byte).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Byte
+#else
+                Microsoft.Data.Sqlite.SqliteType.Integer
+#endif
+            ).Value = value);
             return this;
         }
 
         public IDataAccessQuery WithParameter(string name, bool value)
         {
-            ParameterActions.Add(p => p.Add("@" + name, System.Data.DbType.Boolean).Value = value);
+            ParameterActions.Add(p => p.Add
+            (
+                "@" + name,
+#if NET35
+                System.Data.DbType.Boolean
+#else
+                Microsoft.Data.Sqlite.SqliteType.Integer
+#endif
+            ).Value = value);
             return this;
         }
 
