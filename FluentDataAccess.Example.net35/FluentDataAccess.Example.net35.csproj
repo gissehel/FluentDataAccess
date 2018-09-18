@@ -52,13 +52,18 @@
     <Compile Include="DomainModel\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\DataAccessConfigurationService.cs" />
+    <Compile Include="Service\DataAccessHelper.cs" />
+    <Compile Include="Service\DataAccessPathConfigurationService.cs" />
     <Compile Include="Service\ItemRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentDataAccess\FluentDataAccess.csproj">
       <Project>{e8e69314-8b86-4d3f-85f9-5a7d9202439f}</Project>
       <Name>FluentDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FluentDataAccess.SQLite\FluentDataAccess.SQLite.csproj">
+      <Project>{e8e69314-8b86-4d3f-85f9-5a7d920243a0}</Project>
+      <Name>FluentDataAccess.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

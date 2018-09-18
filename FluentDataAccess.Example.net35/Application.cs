@@ -1,7 +1,5 @@
-﻿using FluentDataAccess.Core.Service;
-using FluentDataAccess.Example.net35.Core.Service;
+﻿using FluentDataAccess.Example.net35.Core.Service;
 using FluentDataAccess.Example.net35.Service;
-using FluentDataAccess.Service;
 using System;
 
 namespace FluentDataAccess.Example.net35
@@ -12,8 +10,8 @@ namespace FluentDataAccess.Example.net35
 
         public void MainCode()
         {
-            IDataAccessConfigurationService dataAccessConfigurationService = new DataAccessConfigurationService();
-            IDataAccessService dataAccessService = new DataAccessService(dataAccessConfigurationService);
+            IDataAccessPathConfigurationService dataAccessPathConfigurationService = new DataAccessPathConfigurationService();
+            IDataAccessService dataAccessService = DataAccessSQLite.GetService(dataAccessPathConfigurationService);
             IItemRepository itemRepository = new ItemRepository(dataAccessService);
 
             ItemRepository = itemRepository;

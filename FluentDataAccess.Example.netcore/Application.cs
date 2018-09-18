@@ -1,7 +1,5 @@
-﻿using FluentDataAccess.Core.Service;
-using FluentDataAccess.Example.netcore.Core.Service;
+﻿using FluentDataAccess.Example.netcore.Core.Service;
 using FluentDataAccess.Example.netcore.Service;
-using FluentDataAccess.Service;
 using System;
 
 namespace FluentDataAccess.Example.netcore
@@ -12,8 +10,8 @@ namespace FluentDataAccess.Example.netcore
 
         public void MainCode()
         {
-            IDataAccessConfigurationService dataAccessConfigurationService = new DataAccessConfigurationService();
-            IDataAccessService dataAccessService = new DataAccessService(dataAccessConfigurationService);
+            IDataAccessPathConfigurationService dataAccessConfigurationService = new DataAccessPathConfigurationService();
+            IDataAccessService dataAccessService = DataAccessSQLite.GetService(dataAccessConfigurationService);
             IItemRepository itemRepository = new ItemRepository(dataAccessService);
 
             ItemRepository = itemRepository;

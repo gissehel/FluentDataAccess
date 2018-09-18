@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>FluentDataAccess</id>
+    <version>2.0.0</version>
+    <authors>FluentDataAccess</authors>
+    <owners>gissehel</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/gissehel/FluentDataAccess</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/gissehel/FluentDataAccess/master/res/FluentDataAccess-32.png</iconUrl>
+    <description>A simple C# Fluent API to start SQL queries.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>MIT</copyright>
+    <tags>FluentDataAccess DataAccess Fluent</tags>
+  </metadata>
+  <files>
+    <file src="FluentDataAccess\bin\Release\netstandard2.0\FluentDataAccess.dll" target="lib\netstandard2.0\FluentDataAccess.dll" />
+    <file src="FluentDataAccess\bin\Release\net35\FluentDataAccess.dll" target="lib\net35\FluentDataAccess.dll" />
+  </files> 
+</package>

@@ -1,5 +1,4 @@
-﻿using FluentDataAccess.Core.Service;
-using FluentDataAccess.Example.net35.Core.Service;
+﻿using FluentDataAccess.Example.net35.Core.Service;
 using FluentDataAccess.Example.net35.DomainModel;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,34 +27,23 @@ namespace FluentDataAccess.Example.net35.Service
         public void AddItem(Item item) => AddItem(item.Name, item.IntA, item.IntB);
 
         public Item ReadItem(string name) =>
-            BindResultToItem
-                (
-                    DataAccessService
-                        .GetQuery("select " + ItemSelectString + " from item where name=@name")
-                        .WithParameter("name", name)
-                        .Returning<Item>()
-                )
+            DataAccessService
+                .GetQuery("select " + ItemSelectString + " from item where name=@name")
+                .WithParameter("name", name)
+                .Returning<Item>()
+                .ReadingItemProperties()
                 .Execute()
                 .FirstOrDefault()
             ;
 
         public IEnumerable<Item> ReadItems() =>
-            BindResultToItem
-                (
-                    DataAccessService
-                        .GetQuery("select " + ItemSelectString + " from item order by name")
-                        .Returning<Item>()
-                )
+            DataAccessService
+                .GetQuery("select " + ItemSelectString + " from item order by name")
+                .Returning<Item>()
+                .ReadingItemProperties()
                 .Execute()
             ;
 
         private string ItemSelectString => "name, a, b";
-
-        private IDataAccessQueryWithResult<Item> BindResultToItem(IDataAccessQueryWithResult<Item> dataAccessQueryWithResult) =>
-            dataAccessQueryWithResult
-                .Reading("name", (Item item, string data) => item.Name = data)
-                .Reading("a", (Item item, int a) => item.IntA = a)
-                .Reading("b", (Item item, int b) => item.IntB = b)
-            ;
     }
 }

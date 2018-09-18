@@ -4,6 +4,8 @@ IF EXIST .\compile.cmd cd ..
 
 CALL scripts\environnement.cmd
 
+scripts\nuget restore
+
 REM --------------------------------------------------------
 REM  MSBuild
 REM --------------------------------------------------------
