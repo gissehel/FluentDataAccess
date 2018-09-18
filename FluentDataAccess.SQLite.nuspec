@@ -1,36 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
-  <metadata>
-    <id>FluentDataAccess.SQLite</id>
-    <version>2.0.0</version>
-    <authors>FluentDataAccess</authors>
-    <owners>gissehel</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectUrl>https://github.com/gissehel/FluentDataAccess</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/gissehel/FluentDataAccess/master/res/FluentDataAccess-32.png</iconUrl>
-    <description>A simple C# Fluent API to start SQL queries (SQLite implementation).</description>
-    <releaseNotes></releaseNotes>
-    <copyright>MIT</copyright>
-    <tags>FluentDataAccess DataAccess Fluent SQLite</tags>
-    <dependencies>
-      <group targetFramework=".NETFramework3.5">
-        <dependency id="System.Data.SQLite" version="1.0.108" />
-        <dependency id="System.Data.SQLite.Core" version="1.0.108" />
-        <dependency id="System.Data.SQLite.Linq" version="1.0.108" />
-      </group>
-      <group targetFramework=".NETStandard2.0">
-        <dependency id="Microsoft.Data.Sqlite" version="2.1.0" />
-      </group>
-      <group>
-        <dependency id="FluentDataAccess" version="2.0.0" />
-      </group>
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="FluentDataAccess.SQLite\bin\Release\netstandard2.0\FluentDataAccess.SQLite.dll" target="lib\netstandard2.0\FluentDataAccess.SQLite.dll" />
-    <file src="FluentDataAccess.SQLite\bin\Release\net35\FluentDataAccess.SQLite.dll" target="lib\net35\FluentDataAccess.SQLite.dll" />
-    <file src="FluentDataAccess.SQLite\bin\Release\net35\System.Data.SQLite.dll" target="lib\net35\System.Data.SQLite.dll" />
-    <file src="FluentDataAccess.SQLite\bin\Release\net35\x86\SQLite.Interop.dll" target="lib\net35\x86\SQLite.Interop.dll" />
-    <file src="FluentDataAccess.SQLite\bin\Release\net35\x64\SQLite.Interop.dll" target="lib\net35\x64\SQLite.Interop.dll" />
-  </files> 
+    <metadata>
+        <id>FluentDataAccess.SQLite</id>
+        <version>2.0.1</version>
+        <authors>FluentDataAccess</authors>
+        <owners>gissehel</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <projectUrl>https://github.com/gissehel/FluentDataAccess</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/gissehel/FluentDataAccess/master/res/FluentDataAccess-32.png</iconUrl>
+        <description>A simple C# Fluent API to start SQL queries (SQLite implementation).</description>
+        <releaseNotes/>
+        <copyright>MIT</copyright>
+        <tags>FluentDataAccess DataAccess Fluent SQLite</tags>
+        <dependencies>
+            <group targetFramework="net35">
+                <dependency id="System.Data.SQLite" version="1.0.108" />
+                <dependency id="System.Data.SQLite.Core" version="1.0.108" />
+                <dependency id="System.Data.SQLite.Linq" version="1.0.108" />
+            </group>
+            <group targetFramework="netstandard2.0">
+                <dependency id="Microsoft.Data.Sqlite" version="2.1.0" />
+            </group>
+            <group>
+                <dependency id="FluentDataAccess" version="2.0.1" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="FluentDataAccess.SQLite\bin\Release\netstandard2.0\FluentDataAccess.SQLite.dll" target="lib\netstandard2.0\FluentDataAccess.SQLite.dll" />
+        <file src="FluentDataAccess.SQLite\bin\Release\net35\FluentDataAccess.SQLite.dll" target="lib\net35\FluentDataAccess.SQLite.dll" />
+        <file src="FluentDataAccess.SQLite\bin\Release\net35\System.Data.SQLite.dll" target="lib\net35\System.Data.SQLite.dll" />
+        <file src="FluentDataAccess.SQLite\bin\Release\net35\x86\SQLite.Interop.dll" target="lib\net35\x86  " />
+        <file src="FluentDataAccess.SQLite\bin\Release\net35\x64\SQLite.Interop.dll" target="lib\net35\x64\SQLite.Interop.dll" />
+    </files> 
 </package>
