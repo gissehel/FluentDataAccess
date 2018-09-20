@@ -1,10 +1,10 @@
 ﻿using FluentDataAccess.Service;
-using Microsoft.Data.Sqlite;
 using System;
+using System.Data.SqlServerCe;
 
-namespace FluentDataAccess.SQLite.Service
+namespace FluentDataAccess.SQLCE35.Service
 {
-    internal class DataAccessQueryWithResult<T> : DataAccessQueryWithResultBase<SqliteConnection, T>
+    internal class DataAccessQueryWithResult<T> : DataAccessQueryWithResultBase<SqlCeConnection, T>
     {
         public DataAccessQueryWithResult(DataAccessQuery dataAccessQuery, Func<T> entityFactory)
         {

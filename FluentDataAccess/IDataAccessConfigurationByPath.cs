@@ -1,6 +1,6 @@
 ﻿namespace FluentDataAccess
 {
-    public interface IDataAccessPathConfigurationService
+    public interface IDataAccessConfigurationByPath
     {
         string DatabasePath { get; }
 

@@ -1,6 +1,6 @@
 ﻿namespace FluentDataAccess.Example.netcore.Service
 {
-    public class DataAccessPathConfigurationService : IDataAccessPathConfigurationService
+    public class DataAccessConfiguration : IDataAccessConfigurationByPath
     {
         public string DatabasePath => ".";
 

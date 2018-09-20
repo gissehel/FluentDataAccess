@@ -1,9 +1,9 @@
 ﻿using FluentDataAccess.Service;
-using Microsoft.Data.Sqlite;
+using System.Data.SqlServerCe;
 
-namespace FluentDataAccess.SQLite.Service
+namespace FluentDataAccess.SQLCE35.Service
 {
-    internal class DataAccessQueryWithIndexedResult : DataAccessQueryWithIndexedResultBase<SqliteConnection>
+    internal class DataAccessQueryWithIndexedResult : DataAccessQueryWithIndexedResultBase<SqlCeConnection>
     {
         public DataAccessQueryWithIndexedResult(DataAccessQuery dataAccessQuery)
         {

@@ -1,56 +1,33 @@
-﻿#if NET35
-
-using System.Data.SQLite;
-
-#else
-
+﻿using FluentDataAccess.Service;
 using Microsoft.Data.Sqlite;
-using SQLiteConnection = Microsoft.Data.Sqlite.SqliteConnection;
-
-#endif
-
 using System.IO;
 
 namespace FluentDataAccess.SQLite.Service
 {
-    internal class DataAccessService : IDataAccessService
+    internal class DataAccessService : DataAccessServiceBase<SqliteConnection>
     {
-        private IDataAccessPathConfigurationService DataAccessPathConfigurationService { get; set; }
+        private IDataAccessConfigurationByPath ConfigurationService { get; set; }
         private string DataPath { get; set; } = ".";
         private string DatabaseName { get; set; } = ".";
-        private SQLiteConnection SQLiteConnection { get; set; }
 
-        public DataAccessService(IDataAccessPathConfigurationService dataAccessPathConfigurationService)
+        public DataAccessService(IDataAccessConfigurationByPath dataAccessPathConfigurationService)
         {
-            DataAccessPathConfigurationService = dataAccessPathConfigurationService;
-            SQLiteConnection = null;
+            ConfigurationService = dataAccessPathConfigurationService;
+            Connection = null;
         }
 
-        public void Init()
+        protected override IDataAccessQuery GetDataAccessQuery(SqliteConnection connection, string query)
+            => new DataAccessQuery(connection, query);
+
+        protected override SqliteConnection GetConnection()
         {
-            DataPath = DataAccessPathConfigurationService.DatabasePath;
-            DatabaseName = DataAccessPathConfigurationService.DatabaseName;
+            DataPath = ConfigurationService.DatabasePath;
+            DatabaseName = ConfigurationService.DatabaseName;
             if (!Directory.Exists(DataPath))
             {
                 Directory.CreateDirectory(DataPath);
             }
-            SQLiteConnection = new SQLiteConnection(string.Format(@"Data Source={0}", Path.Combine(DataPath, DatabaseName + ".sqlite")));
-            SQLiteConnection.Open();
-        }
-
-        public void Dispose()
-        {
-            SQLiteConnection?.Close();
-            SQLiteConnection = null;
-        }
-
-        public IDataAccessQuery GetQuery(string query)
-        {
-            if (SQLiteConnection != null)
-            {
-                return new DataAccessQuery(SQLiteConnection, query);
-            }
-            return null;
+            return new SqliteConnection(string.Format(@"Data Source={0}", Path.Combine(DataPath, DatabaseName + ".sqlite")));
         }
     }
 }

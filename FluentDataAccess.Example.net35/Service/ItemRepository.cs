@@ -1,9 +1,9 @@
-﻿using FluentDataAccess.Example.netcore.Core.Service;
-using FluentDataAccess.Example.netcore.DomainModel;
+﻿using FluentDataAccess.Example.net35.Core.Service;
+using FluentDataAccess.Example.net35.DomainModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentDataAccess.Example.netcore.Service
+namespace FluentDataAccess.Example.net35.Service
 {
     public class ItemRepository : IItemRepository
     {
@@ -13,12 +13,12 @@ namespace FluentDataAccess.Example.netcore.Service
 
         public void Init() =>
             DataAccessService
-                .GetQuery("create table item if not exists (id integer primary key, name text, a integer, b integer, constraint name_unique unique (name));")
+                .GetQuery("create table item (id integer IDENTITY(1,1) primary key, name nvarchar(255), a integer, b integer, constraint name_unique unique (name));")
                 .Execute();
 
         public void AddItem(string name, int a, int b) =>
             DataAccessService
-                .GetQuery("insert or replace into item (name, a, b) values (@name, @a, @b)")
+                .GetQuery("insert into item (name, a, b) values (@name, @a, @b)")
                 .WithParameter("name", name)
                 .WithParameter("a", a)
                 .WithParameter("b", b)

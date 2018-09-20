@@ -1,8 +1,8 @@
-﻿using FluentDataAccess.Example.netcore.Core.Service;
-using FluentDataAccess.Example.netcore.Service;
+﻿using FluentDataAccess.Example.net35.Core.Service;
+using FluentDataAccess.Example.net35.Service;
 using System;
 
-namespace FluentDataAccess.Example.netcore
+namespace FluentDataAccess.Example.net35
 {
     public class Application
     {
@@ -11,7 +11,7 @@ namespace FluentDataAccess.Example.netcore
         public void MainCode()
         {
             var dataAccessConfiguration = new DataAccessConfiguration();
-            IDataAccessService dataAccessService = DataAccessSQLite.GetService(dataAccessConfiguration);
+            IDataAccessService dataAccessService = DataAccessSQLCE35.GetService(dataAccessConfiguration);
             IItemRepository itemRepository = new ItemRepository(dataAccessService);
 
             ItemRepository = itemRepository;
